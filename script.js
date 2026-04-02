@@ -17,7 +17,6 @@ const translations = {
     nav: {
       home: "Home",
       services: "Services",
-      network: "Network",
       about: "About",
       contact: "Contact",
       directContact: "Direct contact",
@@ -73,15 +72,6 @@ const translations = {
       card3Title: "Large trailers",
       card3Text: "Built for heavy loads and international transport operations.",
       summary: "Always the right vehicle for your transport.",
-    },
-    network: {
-      eyebrow: "Coverage",
-      title: "Built to look active, connected, and ready for movement around Europe",
-      text:
-        "The new direction replaces vertical column panels with wide row slides. Each section reads as a horizontal story block with stronger hierarchy and more space for company messaging.",
-      list1: "Wide-format sections for stronger presentation flow",
-      list2: "Large typography and modern spacing",
-      list3: "Responsive stacking for tablet and mobile screens",
     },
     about: {
       eyebrow: "About",
@@ -161,7 +151,7 @@ const translations = {
       },
     },
     footer: {
-      title: "European logistics with a sharper digital profile.",
+      title: "Fast. Reliable. Across Europe.",
       text: "Company profile proposal for shipping and transport services around Europe.",
     },
   },
@@ -174,7 +164,6 @@ const translations = {
     nav: {
       home: "Home",
       services: "Diensten",
-      network: "Netwerk",
       about: "Over Ons",
       contact: "Contact",
       directContact: "Direct contact",
@@ -230,15 +219,6 @@ const translations = {
       card3Title: "Grote trailers",
       card3Text: "Voor zware en internationale ladingen.",
       summary: "Altijd het juiste voertuig voor uw transport.",
-    },
-    network: {
-      eyebrow: "Bereik",
-      title: "Ontworpen om actief, verbonden en klaar voor beweging door Europa te ogen",
-      text:
-        "Deze richting vervangt verticale kolompanelen door brede rij-slides. Elke sectie leest als een horizontaal verhaalblok met sterkere hierarchie en meer ruimte voor bedrijfscommunicatie.",
-      list1: "Brede secties voor een sterkere presentatiestroom",
-      list2: "Grote typografie en moderne witruimte",
-      list3: "Responsieve opbouw voor tablet en mobiel",
     },
     about: {
       eyebrow: "Over Ons",
@@ -318,7 +298,7 @@ const translations = {
       },
     },
     footer: {
-      title: "Europese logistiek met een sterker digitaal profiel.",
+      title: "Snel. Betrouwbaar. Overal in Europa.",
       text: "Bedrijfswebsitevoorstel voor transport- en logistieke diensten door heel Europa.",
     },
   },
@@ -331,7 +311,6 @@ const translations = {
     nav: {
       home: "Start",
       services: "Leistungen",
-      network: "Netzwerk",
       about: "Ueber Uns",
       contact: "Kontakt",
       directContact: "Direkter Kontakt",
@@ -387,15 +366,6 @@ const translations = {
       card3Title: "Grosse Trailer",
       card3Text: "Fuer schwere und internationale Ladungen.",
       summary: "Immer das richtige Fahrzeug fuer Ihren Transport.",
-    },
-    network: {
-      eyebrow: "Abdeckung",
-      title: "Entwickelt, um aktiv, verbunden und bereit fuer Bewegung durch Europa zu wirken",
-      text:
-        "Diese Richtung ersetzt vertikale Spalten durch breite Zeilen-Slides. Jeder Abschnitt liest sich als horizontaler Story-Block mit staerkerer Hierarchie und mehr Raum fuer Unternehmenskommunikation.",
-      list1: "Breitformatige Sektionen fuer einen staerkeren Praesentationsfluss",
-      list2: "Grosse Typografie und moderne Abstaende",
-      list3: "Responsive Stapelung fuer Tablet- und Mobilgeraete",
     },
     about: {
       eyebrow: "Ueber Uns",
@@ -475,7 +445,7 @@ const translations = {
       },
     },
     footer: {
-      title: "Europaeische Logistik mit einem schaerferen digitalen Profil.",
+      title: "Schnell. Zuverlaessig. In ganz Europa.",
       text: "Unternehmensprofil-Konzept fuer Versand- und Transportdienstleistungen in ganz Europa.",
     },
   },
