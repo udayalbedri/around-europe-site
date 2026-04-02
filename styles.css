@@ -565,6 +565,41 @@ h3 {
   gap: 14px;
 }
 
+.vehicle-media {
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(18, 63, 127, 0.08);
+  cursor: pointer;
+}
+
+.vehicle-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.vehicle-media:hover img,
+.vehicle-media:focus-visible img {
+  transform: scale(1.03);
+  filter: saturate(1.04);
+}
+
+.vehicle-photo-trigger {
+  justify-self: flex-start;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(18, 63, 127, 0.12);
+  border-radius: 999px;
+  background: rgba(18, 63, 127, 0.08);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .vehicle-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -583,6 +618,92 @@ h3 {
   color: var(--ink);
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   letter-spacing: -0.03em;
+}
+
+.vehicle-lightbox[hidden] {
+  display: none;
+}
+
+.vehicle-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+}
+
+.vehicle-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 20, 38, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.vehicle-lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1080px);
+  max-height: 88vh;
+  padding: 18px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 30px 70px rgba(8, 20, 38, 0.35);
+  overflow: hidden;
+}
+
+.vehicle-lightbox-image {
+  width: 100%;
+  max-height: min(66vh, 720px);
+  object-fit: contain;
+  border-radius: 18px;
+  background: rgba(18, 63, 127, 0.04);
+}
+
+.vehicle-lightbox-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.vehicle-lightbox-thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(18, 63, 127, 0.08);
+  cursor: pointer;
+}
+
+.vehicle-lightbox-thumb.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 8px 18px rgba(246, 128, 22, 0.18);
+}
+
+.vehicle-lightbox-thumb img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  display: block;
+}
+
+.vehicle-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(12, 30, 60, 0.12);
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .service-extra {

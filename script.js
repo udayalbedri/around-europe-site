@@ -6,6 +6,17 @@ const heroPanels = document.querySelectorAll(".hero-panel");
 const heroDots = document.querySelectorAll(".hero-dot");
 const heroPrev = document.querySelector("[data-hero-prev]");
 const heroNext = document.querySelector("[data-hero-next]");
+const vehiclePhotoTriggers = document.querySelectorAll("[data-vehicle-image]");
+const vehicleLightbox = document.querySelector("#vehicle-lightbox");
+const vehicleLightboxImage = document.querySelector(".vehicle-lightbox-image");
+const vehicleLightboxThumbs = document.querySelector(".vehicle-lightbox-thumbs");
+const lightboxCloseTriggers = document.querySelectorAll("[data-lightbox-close]");
+const vehicleGallery = [
+  { src: "hero-truck-warehouse.jpg", alt: "4 meter bakwagen" },
+  { src: "hero-truck-port.jpg", alt: "8 meter vrachtwagen" },
+  { src: "hero-truck-europe.jpg", alt: "grote trailer" },
+];
+let activeVehicleGalleryIndex = 0;
 
 const translations = {
   en: {
@@ -17,6 +28,7 @@ const translations = {
     nav: {
       home: "Home",
       services: "Services",
+      fleet: "Our Vehicles",
       about: "About",
       contact: "Contact",
       directContact: "Direct contact",
@@ -71,6 +83,7 @@ const translations = {
       card2Text: "Efficient and powerful for medium-sized freight and daily logistics routes.",
       card3Title: "Large trailers",
       card3Text: "Built for heavy loads and international transport operations.",
+      viewPhoto: "View Photo",
       summary: "Always the right vehicle for your transport.",
     },
     about: {
@@ -164,6 +177,7 @@ const translations = {
     nav: {
       home: "Home",
       services: "Diensten",
+      fleet: "Onze Voertuigen",
       about: "Over Ons",
       contact: "Contact",
       directContact: "Direct contact",
@@ -218,6 +232,7 @@ const translations = {
       card2Text: "Efficient en krachtig.",
       card3Title: "Grote trailers",
       card3Text: "Voor zware en internationale ladingen.",
+      viewPhoto: "Bekijk Foto",
       summary: "Altijd het juiste voertuig voor uw transport.",
     },
     about: {
@@ -311,6 +326,7 @@ const translations = {
     nav: {
       home: "Start",
       services: "Leistungen",
+      fleet: "Unsere Fahrzeuge",
       about: "Ueber Uns",
       contact: "Kontakt",
       directContact: "Direkter Kontakt",
@@ -365,6 +381,7 @@ const translations = {
       card2Text: "Effizient und leistungsstark.",
       card3Title: "Grosse Trailer",
       card3Text: "Fuer schwere und internationale Ladungen.",
+      viewPhoto: "Foto Ansehen",
       summary: "Immer das richtige Fahrzeug fuer Ihren Transport.",
     },
     about: {
@@ -572,6 +589,69 @@ languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setLanguage(button.dataset.lang);
   });
+});
+
+const closeVehicleLightbox = () => {
+  if (!vehicleLightbox || !vehicleLightboxImage || !vehicleLightboxThumbs) {
+    return;
+  }
+
+  vehicleLightbox.hidden = true;
+  vehicleLightboxImage.src = "";
+  vehicleLightboxImage.alt = "";
+  vehicleLightboxThumbs.innerHTML = "";
+  document.body.style.overflow = "";
+};
+
+const renderVehicleLightbox = () => {
+  if (!vehicleLightboxImage || !vehicleLightboxThumbs) {
+    return;
+  }
+
+  const activeImage = vehicleGallery[activeVehicleGalleryIndex];
+  vehicleLightboxImage.src = activeImage.src;
+  vehicleLightboxImage.alt = activeImage.alt;
+  vehicleLightboxThumbs.innerHTML = "";
+
+  vehicleGallery.forEach((image, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `vehicle-lightbox-thumb${index === activeVehicleGalleryIndex ? " is-active" : ""}`;
+    button.setAttribute("aria-label", `Show vehicle photo ${index + 1}`);
+    button.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+    button.addEventListener("click", () => {
+      activeVehicleGalleryIndex = index;
+      renderVehicleLightbox();
+    });
+    vehicleLightboxThumbs.appendChild(button);
+  });
+};
+
+const openVehicleLightbox = (index) => {
+  if (!vehicleLightbox || !vehicleLightboxImage || !vehicleLightboxThumbs) {
+    return;
+  }
+
+  activeVehicleGalleryIndex = index;
+  renderVehicleLightbox();
+  vehicleLightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+};
+
+vehiclePhotoTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    openVehicleLightbox(Number(trigger.dataset.galleryIndex || 0));
+  });
+});
+
+lightboxCloseTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", closeVehicleLightbox);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeVehicleLightbox();
+  }
 });
 
 const showHeroSlide = (index) => {
