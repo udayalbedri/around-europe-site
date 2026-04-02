@@ -1183,6 +1183,20 @@ blockquote {
   justify-items: start;
 }
 
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+}
+
+.footer-nav a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(243, 247, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 500;
+}
+
 .footer-meta p,
 .footer-meta a {
   color: rgba(243, 247, 255, 0.74);
