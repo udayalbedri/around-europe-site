@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Truck fleet illustration</title>
+  <desc id="desc">Stylized logistics trucks driving on a highway.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#d9eefb"/>
+      <stop offset="100%" stop-color="#f7fbff"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#31506c"/>
+      <stop offset="100%" stop-color="#18283b"/>
+    </linearGradient>
+    <linearGradient id="cab" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f68b28"/>
+      <stop offset="100%" stop-color="#d56000"/>
+    </linearGradient>
+    <linearGradient id="trailer" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d7e5f4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#sky)"/>
+  <rect y="430" width="1200" height="270" fill="url(#road)"/>
+  <path d="M0 470 Q300 430 620 470 T1200 470" fill="none" stroke="#7ea2c5" stroke-width="5" opacity=".28"/>
+  <path d="M0 535 H1200" stroke="#f7fbff" stroke-width="8" stroke-dasharray="40 36" opacity=".65"/>
+  <g opacity=".5">
+    <rect x="90" y="90" width="120" height="70" rx="10" fill="#b8d6ea"/>
+    <rect x="250" y="65" width="90" height="95" rx="10" fill="#c7dfee"/>
+    <rect x="1020" y="75" width="75" height="85" rx="10" fill="#c7dfee"/>
+  </g>
+  <g transform="translate(180 220)">
+    <rect x="190" y="140" width="280" height="125" rx="20" fill="url(#trailer)"/>
+    <rect x="100" y="165" width="120" height="100" rx="18" fill="url(#cab)"/>
+    <rect x="135" y="185" width="55" height="38" rx="8" fill="#b6e4fb"/>
+    <rect x="70" y="205" width="48" height="60" rx="12" fill="#f68b28"/>
+    <rect x="205" y="163" width="16" height="92" rx="8" fill="#9cb5cb"/>
+    <circle cx="155" cy="278" r="28" fill="#22384f"/>
+    <circle cx="155" cy="278" r="12" fill="#d9e4ee"/>
+    <circle cx="270" cy="278" r="28" fill="#22384f"/>
+    <circle cx="270" cy="278" r="12" fill="#d9e4ee"/>
+    <circle cx="412" cy="278" r="28" fill="#22384f"/>
+    <circle cx="412" cy="278" r="12" fill="#d9e4ee"/>
+    <rect x="232" y="180" width="180" height="18" rx="9" fill="#e8eff7"/>
+  </g>
+  <g transform="translate(640 270) scale(.78)">
+    <rect x="190" y="140" width="280" height="125" rx="20" fill="#edf3f9"/>
+    <rect x="100" y="165" width="120" height="100" rx="18" fill="#1c63bf"/>
+    <rect x="135" y="185" width="55" height="38" rx="8" fill="#b6e4fb"/>
+    <rect x="70" y="205" width="48" height="60" rx="12" fill="#1c63bf"/>
+    <rect x="205" y="163" width="16" height="92" rx="8" fill="#9cb5cb"/>
+    <circle cx="155" cy="278" r="28" fill="#22384f"/>
+    <circle cx="155" cy="278" r="12" fill="#d9e4ee"/>
+    <circle cx="270" cy="278" r="28" fill="#22384f"/>
+    <circle cx="270" cy="278" r="12" fill="#d9e4ee"/>
+    <circle cx="412" cy="278" r="28" fill="#22384f"/>
+    <circle cx="412" cy="278" r="12" fill="#d9e4ee"/>
+  </g>
+</svg>

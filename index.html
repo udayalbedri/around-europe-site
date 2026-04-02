@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Around Europe B.V. | Logistics Across Europe</title>
+  <meta
+    id="meta-description"
+    name="description"
+    content="Modern logistics company profile website proposal for Around Europe B.V., focused on European shipping, transport coordination, and dependable delivery."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="top-contact-bar">
+    <div class="top-contact-bar-inner">
+      <span class="top-contact-city">Tilburg</span>
+      <a class="top-contact-link" href="tel:+31616077858">
+        <span data-i18n="nav.directContact">Direct contact</span>
+        <strong>+31 6 16077858</strong>
+      </a>
+    </div>
+  </div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Around Europe B.V. home">
+      <img src="new_logo.png" alt="Around Europe B.V. logo">
+      <span>Around Europe B.V.</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#network" data-i18n="nav.network">Network</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <div class="language-switch language-switch-mobile" aria-label="Language selector">
+        <button class="language-button" type="button" data-lang="en">EN</button>
+        <button class="language-button is-active" type="button" data-lang="nl">NL</button>
+        <button class="language-button" type="button" data-lang="de">DE</button>
+      </div>
+    </nav>
+
+    <div class="language-switch language-switch-desktop" aria-label="Language selector">
+      <button class="language-button" type="button" data-lang="en">EN</button>
+      <button class="language-button is-active" type="button" data-lang="nl">NL</button>
+      <button class="language-button" type="button" data-lang="de">DE</button>
+    </div>
+  </header>
+
+  <main class="slide-deck">
+    <section class="slide slide-hero reveal" id="home">
+      <div class="hero-slider">
+        <div class="hero-track">
+          <article class="hero-panel is-active">
+            <div class="slide-inner hero-layout">
+              <div class="hero-copy">
+                <div class="eyebrow" data-i18n="hero.slide1.eyebrow">Around Europe B.V.</div>
+                <h1>
+                  <span data-i18n="hero.slide1.titleLine1">Fast, reliable and flexible transport</span>
+                  <span data-i18n="hero.slide1.titleLine2">in the Netherlands and across Europe</span>
+                </h1>
+                <p class="lead" data-i18n="hero.slide1.lead">From urgent deliveries to complete transport solutions, we make sure your shipment arrives safely and on time.</p>
+                <ul class="hero-points">
+                  <li data-i18n="hero.slide1.point1">Fast service, including urgent transport</li>
+                  <li data-i18n="hero.slide1.point2">Professional and experienced drivers</li>
+                  <li data-i18n="hero.slide1.point3">Transport tailored to every shipment size</li>
+                  <li data-i18n="hero.slide1.point4">Reliable partner for companies and private clients</li>
+                </ul>
+                <div class="hero-actions">
+                  <a class="button button-primary" href="#contact" data-i18n="hero.slide1.ctaPrimary">Request A Quote Today</a>
+                  <a class="button button-secondary" href="#services" data-i18n="hero.slide1.ctaSecondary">View Services</a>
+                </div>
+              </div>
+              <div class="hero-stage" aria-hidden="true">
+                <div class="hero-cutout">
+                  <img src="hero-truck-cutout.png" alt="">
+                </div>
+                <div class="hero-transaction-strip">
+                  <article class="stage-card stage-card-main">
+                    <strong data-i18n="hero.slide1.card1Title">EU ROUTES</strong>
+                    <span data-i18n="hero.slide1.card1Text">Planned freight lanes with fast response and clear coordination.</span>
+                  </article>
+                  <article class="stage-card stage-card-side">
+                    <strong data-i18n="hero.slide1.card2Title">CLIENT PROFILE</strong>
+                    <span data-i18n="hero.slide1.card2Text">Corporate presentation first, operational trust immediately visible.</span>
+                  </article>
+                  <article class="stage-card stage-card-accent">
+                    <strong data-i18n="hero.slide1.card3Title">TRANSPORT FLOW</strong>
+                    <span data-i18n="hero.slide1.card3Text">Operational planning, shipment updates, and route visibility in one focused presentation layer.</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="hero-slider-controls">
+          <button class="hero-arrow" type="button" data-hero-prev aria-label="Previous slide">‹</button>
+          <div class="hero-dots" aria-label="Hero slides">
+            <button class="hero-dot is-active" type="button" data-hero-dot="0" aria-label="Slide 1"></button>
+            <button class="hero-dot" type="button" data-hero-dot="1" aria-label="Slide 2"></button>
+            <button class="hero-dot" type="button" data-hero-dot="2" aria-label="Slide 3"></button>
+          </div>
+          <button class="hero-arrow" type="button" data-hero-next aria-label="Next slide">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-services reveal" id="services">
+      <div class="slide-inner">
+        <div class="slide-intro">
+          <div class="eyebrow" data-i18n="services.eyebrow">Services</div>
+          <h2 data-i18n="services.title">Our Services</h2>
+          <p class="lead" data-i18n="services.lead">We provide professional transport with different types of vehicles.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-index">01</span>
+            <h3 data-i18n="services.card1Title">Box Trucks (4 meter loading space)</h3>
+            <p data-i18n="services.card1Text">Ideal for city distribution and fast deliveries.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-index">02</span>
+            <h3 data-i18n="services.card2Title">Trucks (8 meter loading space - C license)</h3>
+            <p data-i18n="services.card2Text">For medium-sized transport jobs.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-index">03</span>
+            <h3 data-i18n="services.card3Title">Tractor-Trailer (trailers / trucks)</h3>
+            <p data-i18n="services.card3Text">For large and international transport operations.</p>
+          </article>
+        </div>
+
+        <div class="service-extra">
+          <strong data-i18n="services.extraTitle">Additional transport services</strong>
+          <div class="service-extra-list">
+            <span data-i18n="services.list1">Transport within the Netherlands</span>
+            <span data-i18n="services.list2">International transport within the EU</span>
+            <span data-i18n="services.list3">Express transport for urgent deliveries</span>
+            <span data-i18n="services.list4">Distribution and pallet transport</span>
+            <span data-i18n="services.list5">Courier services</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-fleet reveal" id="fleet">
+      <div class="slide-inner">
+        <div class="slide-intro">
+          <div class="eyebrow" data-i18n="fleet.eyebrow">Our Vehicles</div>
+          <h2 data-i18n="fleet.title">Our Vehicles</h2>
+          <p class="lead" data-i18n="fleet.lead">We operate a modern and versatile fleet for different transport needs.</p>
+        </div>
+
+        <div class="vehicle-grid">
+          <article class="vehicle-card">
+            <span class="service-index">01</span>
+            <h3 data-i18n="fleet.card1Title">4 meter box trucks</h3>
+            <p data-i18n="fleet.card1Text">Fast and flexible for compact deliveries and agile transport work.</p>
+          </article>
+          <article class="vehicle-card">
+            <span class="service-index">02</span>
+            <h3 data-i18n="fleet.card2Title">8 meter trucks</h3>
+            <p data-i18n="fleet.card2Text">Efficient and powerful for medium-sized freight and daily logistics routes.</p>
+          </article>
+          <article class="vehicle-card">
+            <span class="service-index">03</span>
+            <h3 data-i18n="fleet.card3Title">Large trailers</h3>
+            <p data-i18n="fleet.card3Text">Built for heavy loads and international transport operations.</p>
+          </article>
+        </div>
+
+        <div class="fleet-summary">
+          <strong data-i18n="fleet.summary">Always the right vehicle for your transport.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-network reveal" id="network">
+      <div class="slide-inner network-layout">
+        <div class="network-copy">
+          <div class="eyebrow" data-i18n="network.eyebrow">Coverage</div>
+          <h2 data-i18n="network.title">Built to look active, connected, and ready for movement around Europe</h2>
+          <p data-i18n="network.text">The new direction replaces vertical column panels with wide row slides. Each section reads as a horizontal story block with stronger hierarchy and more space for company messaging.</p>
+          <ul class="feature-list">
+            <li data-i18n="network.list1">Wide-format sections for stronger presentation flow</li>
+            <li data-i18n="network.list2">Large typography and modern spacing</li>
+            <li data-i18n="network.list3">Responsive stacking for tablet and mobile screens</li>
+          </ul>
+        </div>
+
+        <div class="route-map" aria-hidden="true">
+          <span class="route-dot route-dot-a"></span>
+          <span class="route-dot route-dot-b"></span>
+          <span class="route-dot route-dot-c"></span>
+          <span class="route-dot route-dot-d"></span>
+          <span class="route-line route-line-a"></span>
+          <span class="route-line route-line-b"></span>
+          <span class="route-line route-line-c"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-about reveal" id="about">
+      <div class="slide-inner about-layout">
+        <div class="slide-intro">
+          <div class="eyebrow" data-i18n="about.eyebrow">About</div>
+          <h2 data-i18n="about.title">Around Europe B.V. is a professional transport company based in Tilburg.</h2>
+        </div>
+
+        <div class="about-grid">
+          <p data-i18n="about.text">With years of experience in logistics and distribution, we provide reliable and flexible transport services within the Netherlands and across Europe. We work with a strong team of drivers and a modern fleet so that every assignment can be carried out quickly and efficiently.</p>
+          <blockquote data-i18n="about.quote">Your cargo is in safe hands with us.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-contact reveal" id="contact">
+      <div class="slide-inner contact-layout">
+        <div class="slide-intro">
+          <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+          <h2 data-i18n="contact.title">Company Contact Details</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p data-i18n="contact.text">Around Europe B.V. is available for all your transport requests.</p>
+            <div class="contact-points">
+              <span data-i18n="contact.point1">Bedrijfsnaam: Around Europe B.V.</span>
+              <span data-i18n="contact.point2">KVK: 97004367</span>
+              <span data-i18n="contact.point3">BTW: NL867871556B01</span>
+              <span data-i18n="contact.point4">Adres: Siriusstraat 100, 5015 BT Tilburg, Nederland</span>
+              <span data-i18n="contact.point5">E-mail: info@aroundeurope.nl</span>
+              <span data-i18n="contact.point6">Telefoon: +31 6 16077858</span>
+            </div>
+            <div class="contact-actions">
+              <a
+                class="button button-whatsapp"
+                href="https://wa.me/31616077858"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="contact.whatsapp"
+              >WhatsApp Direct</a>
+              <a class="button button-secondary" href="tel:+31616077858" data-i18n="contact.call">Call Direct</a>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <label>
+              <span data-i18n="contact.form.name">Full Name</span>
+              <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="contact.form.namePlaceholder">
+            </label>
+            <label>
+              <span data-i18n="contact.form.email">Email</span>
+              <input type="email" name="email" placeholder="name@company.com" data-i18n-placeholder="contact.form.emailPlaceholder">
+            </label>
+            <label>
+              <span data-i18n="contact.form.company">Company</span>
+              <input type="text" name="company" placeholder="Company name" data-i18n-placeholder="contact.form.companyPlaceholder">
+            </label>
+            <label>
+              <span data-i18n="contact.form.service">Transport Need</span>
+              <select name="service">
+                <option data-i18n="contact.form.option1">Road Freight</option>
+                <option data-i18n="contact.form.option2">Cross-Border Planning</option>
+                <option data-i18n="contact.form.option3">Business Partnership</option>
+              </select>
+            </label>
+            <label class="form-span">
+              <span data-i18n="contact.form.message">Project Details</span>
+              <textarea name="message" rows="5" placeholder="Tell us about your routes, timing, or logistics needs" data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+            </label>
+            <button class="button button-primary" type="submit" data-i18n="contact.form.submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-offices reveal" id="offices">
+      <div class="slide-inner offices-layout">
+        <div class="slide-intro offices-intro">
+          <div class="eyebrow" data-i18n="offices.eyebrow">European Offices</div>
+          <h2 data-i18n="offices.title">Regional presence visualized with office pins across Europe</h2>
+        </div>
+
+        <div class="office-map-card">
+          <div class="office-map" id="office-map" aria-label="Around Europe office map"></div>
+
+          <div class="office-band">
+            <article data-office="tilburg">
+              <strong data-i18n="offices.tilburg.role">Netherlands - Head Quarter</strong>
+              <span data-i18n="offices.tilburg.address">Siriusstraat 100, 5015 BT Tilburg, Nederland</span>
+              <span data-i18n="offices.tilburg.kvk">KVK: 97004367</span>
+              <span data-i18n="offices.tilburg.vat">BTW: NL867871556B01</span>
+              <a href="mailto:info@aroundeurope.nl">info@aroundeurope.nl</a>
+            </article>
+            <article data-office="hamburg">
+              <strong data-i18n="offices.hamburg.role">Germany</strong>
+              <span data-i18n="offices.hamburg.address">Freight Terminal 8, HafenCity, Hamburg</span>
+              <span>+49 40 883 2190</span>
+              <a href="mailto:hamburg@aroundeurope.example">hamburg@aroundeurope.example</a>
+            </article>
+            <article data-office="antwerp">
+              <strong data-i18n="offices.antwerp.role">Belgium</strong>
+              <span data-i18n="offices.antwerp.address">Dockside Road 21, Antwerp Gateway</span>
+              <span>+32 3 790 1142</span>
+              <a href="mailto:antwerp@aroundeurope.example">antwerp@aroundeurope.example</a>
+            </article>
+            <article data-office="paris">
+              <strong data-i18n="offices.paris.role">France</strong>
+              <span data-i18n="offices.paris.address">Euro Freight Centre, Paris South Hub</span>
+              <span>+33 1 84 77 6320</span>
+              <a href="mailto:paris@aroundeurope.example">paris@aroundeurope.example</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <p class="footer-kicker">Around Europe B.V.</p>
+        <h2 class="footer-title" data-i18n="footer.title">European logistics with a sharper digital profile.</h2>
+      </div>
+
+      <div class="footer-meta">
+        <p data-i18n="footer.text">Company profile proposal for shipping and transport services around Europe.</p>
+        <div class="language-switch language-switch-footer" aria-label="Language selector">
+          <button class="language-button" type="button" data-lang="en">EN</button>
+          <button class="language-button is-active" type="button" data-lang="nl">NL</button>
+          <button class="language-button" type="button" data-lang="de">DE</button>
+        </div>
+        <a href="mailto:info@aroundeurope.nl">info@aroundeurope.nl</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#home" aria-label="Back to top">↑</a>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="script.js"></script>
+</body>
+</html>
