@@ -99,9 +99,12 @@ const translations = {
       point1: "Company name: Around Europe B.V.",
       point2: "KVK: 97004367",
       point3: "VAT: NL867871556B01",
-      point4: "Address: Siriusstraat 100, 5015 BT Tilburg, Netherlands",
+      addressTitle: "Addresses:",
+      point4: "Siriusstraat 100, 5015 BT Tilburg, Netherlands",
       point5: "Email: info@aroundeurope.nl",
       point6: "Phone: +31 6 16077858",
+      point7: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch",
+      point8: "Meerpal 8 E, 4904 SK Oosterhout",
       whatsapp: "WhatsApp Direct",
       call: "Call Direct",
       form: {
@@ -123,12 +126,23 @@ const translations = {
     offices: {
       eyebrow: "European Offices",
       title: "Regional presence visualized with office pins across Europe",
+      groupTitle: "Our Addresses",
       tilburg: {
         city: "Tilburg",
         role: "Netherlands - Head Quarter",
         address: "Siriusstraat 100, 5015 BT Tilburg, Netherlands",
         kvk: "KVK: 97004367",
         vat: "VAT: NL867871556B01",
+      },
+      denbosch: {
+        city: "'s-Hertogenbosch",
+        role: "Netherlands - 's-Hertogenbosch",
+        address: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch, Netherlands",
+      },
+      oosterhout: {
+        city: "Oosterhout",
+        role: "Netherlands - Oosterhout",
+        address: "Meerpal 8 E, 4904 SK Oosterhout, Netherlands",
       },
       hamburg: {
         city: "Hamburg",
@@ -242,9 +256,12 @@ const translations = {
       point1: "Bedrijfsnaam: Around Europe B.V.",
       point2: "KVK: 97004367",
       point3: "BTW: NL867871556B01",
-      point4: "Adres: Siriusstraat 100, 5015 BT Tilburg, Nederland",
+      addressTitle: "Adressen:",
+      point4: "Siriusstraat 100, 5015 BT Tilburg, Nederland",
       point5: "E-mail: info@aroundeurope.nl",
       point6: "Telefoon: +31 6 16077858",
+      point7: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch",
+      point8: "Meerpal 8 E, 4904 SK Oosterhout",
       whatsapp: "WhatsApp Direct",
       call: "Bel Direct",
       form: {
@@ -266,12 +283,23 @@ const translations = {
     offices: {
       eyebrow: "Europese Kantoren",
       title: "Regionale aanwezigheid zichtbaar gemaakt met kantoorlocaties in Europa",
+      groupTitle: "Onze Adressen",
       tilburg: {
         city: "Tilburg",
         role: "Nederland - Hoofdkantoor",
         address: "Siriusstraat 100, 5015 BT Tilburg, Nederland",
         kvk: "KVK: 97004367",
         vat: "BTW: NL867871556B01",
+      },
+      denbosch: {
+        city: "'s-Hertogenbosch",
+        role: "Nederland - 's-Hertogenbosch",
+        address: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch, Nederland",
+      },
+      oosterhout: {
+        city: "Oosterhout",
+        role: "Nederland - Oosterhout",
+        address: "Meerpal 8 E, 4904 SK Oosterhout, Nederland",
       },
       hamburg: {
         city: "Hamburg",
@@ -385,9 +413,12 @@ const translations = {
       point1: "Firmenname: Around Europe B.V.",
       point2: "Handelsregister: 97004367",
       point3: "USt-IdNr.: NL867871556B01",
-      point4: "Adresse: Siriusstraat 100, 5015 BT Tilburg, Niederlande",
+      addressTitle: "Adressen:",
+      point4: "Siriusstraat 100, 5015 BT Tilburg, Niederlande",
       point5: "E-Mail: info@aroundeurope.nl",
       point6: "Telefon: +31 6 16077858",
+      point7: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch",
+      point8: "Meerpal 8 E, 4904 SK Oosterhout",
       whatsapp: "WhatsApp Direkt",
       call: "Direkt Anrufen",
       form: {
@@ -409,12 +440,23 @@ const translations = {
     offices: {
       eyebrow: "Europaeische Standorte",
       title: "Regionale Praesenz visualisiert mit Standort-Pins in ganz Europa",
+      groupTitle: "Unsere Adressen",
       tilburg: {
         city: "Tilburg",
         role: "Niederlande - Hauptsitz",
         address: "Siriusstraat 100, 5015 BT Tilburg, Niederlande",
         kvk: "Handelsregister: 97004367",
         vat: "USt-IdNr.: NL867871556B01",
+      },
+      denbosch: {
+        city: "'s-Hertogenbosch",
+        role: "Niederlande - 's-Hertogenbosch",
+        address: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch, Niederlande",
+      },
+      oosterhout: {
+        city: "Oosterhout",
+        role: "Niederlande - Oosterhout",
+        address: "Meerpal 8 E, 4904 SK Oosterhout, Niederlande",
       },
       hamburg: {
         city: "Hamburg",
@@ -456,22 +498,14 @@ const officeDirectory = [
     coords: [51.5555, 5.0913],
   },
   {
-    key: "hamburg",
-    phone: "+49 40 883 2190",
-    email: "hamburg@aroundeurope.example",
-    coords: [53.5511, 9.9937],
+    key: "denbosch",
+    email: "info@aroundeurope.nl",
+    coords: [51.7178, 5.3037],
   },
   {
-    key: "antwerp",
-    phone: "+32 3 790 1142",
-    email: "antwerp@aroundeurope.example",
-    coords: [51.2194, 4.4025],
-  },
-  {
-    key: "paris",
-    phone: "+33 1 84 77 6320",
-    email: "paris@aroundeurope.example",
-    coords: [48.8566, 2.3522],
+    key: "oosterhout",
+    email: "info@aroundeurope.nl",
+    coords: [51.6418, 4.8560],
   },
 ];
 
@@ -645,7 +679,7 @@ if (officeMapElement && typeof L !== "undefined") {
   officeMap = L.map(officeMapElement, {
     scrollWheelZoom: false,
     zoomControl: false,
-  }).setView([50.55, 6.5], 4);
+  }).setView([51.628, 5.084], 9);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
