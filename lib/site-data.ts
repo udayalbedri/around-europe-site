@@ -41,12 +41,15 @@ type LocaleContent = {
   };
   hero: {
     eyebrow: string;
-    titleLine1: string;
-    titleLine2: string;
+    titleLines: string[];
     lead: string;
     points: string[];
+    trustItems: string[];
+    introTitle: string;
+    introText: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaTertiary: string;
     cards: { title: string; text: string }[];
   };
   services: {
@@ -54,8 +57,8 @@ type LocaleContent = {
     title: string;
     lead: string;
     items: { title: string; text: string }[];
-    extraTitle: string;
-    extras: string[];
+    whyTitle: string;
+    whyItems: string[];
   };
   fleet: {
     eyebrow: string;
@@ -70,6 +73,11 @@ type LocaleContent = {
       gallery: VehicleImage[];
     }[];
   };
+  coverage: {
+    eyebrow: string;
+    title: string;
+    countries: string[];
+  };
   about: {
     eyebrow: string;
     title: string;
@@ -80,6 +88,7 @@ type LocaleContent = {
     eyebrow: string;
     title: string;
     text: string;
+    homeText: string;
     companyName: string;
     kvk: string;
     vat: string;
@@ -89,6 +98,8 @@ type LocaleContent = {
     phone: string;
     whatsapp: string;
     call: string;
+    quoteCta: string;
+    contactCta: string;
     form: {
       name: string;
       namePlaceholder: string;
@@ -101,6 +112,9 @@ type LocaleContent = {
       message: string;
       messagePlaceholder: string;
       submit: string;
+      sending: string;
+      success: string;
+      error: string;
     };
   };
   offices: {
@@ -207,24 +221,32 @@ export const siteContent: Record<Locale, LocaleContent> = {
       backToTop: "Terug naar boven",
       readMore: "Meer lezen",
       allServices: "Bekijk alle diensten",
-      allVehicles: "Bekijk alle voertuigen",
+      allVehicles: "Bekijk ons wagenpark",
       getQuote: "Vraag direct een offerte aan",
       closeGallery: "Sluit fotovertoning",
     },
     hero: {
       eyebrow: "Around Europe B.V.",
-      titleLine1: "Snel, betrouwbaar en flexibel transport",
-      titleLine2: "in Nederland en heel Europa",
-      lead:
-        "Van spoedleveringen tot complete transportoplossingen - wij zorgen dat uw zending veilig en op tijd aankomt.",
+      titleLines: ["Betrouwbaar transport", "door heel", "Nederland en Europa"],
+      lead: "Snelle, veilige en flexibele logistieke oplossingen voor bedrijven",
       points: [
         "Snelle service - ook spoedtransport mogelijk",
         "Professionele en ervaren chauffeurs",
         "Transport op maat - van klein tot groot",
         "Betrouwbare partner voor bedrijven en particulieren",
       ],
-      ctaPrimary: "Vraag Vandaag Nog Een Offerte Aan",
-      ctaSecondary: "Bekijk Diensten",
+      trustItems: [
+        "24/7 beschikbaar",
+        "Snelle levering",
+        "Betrouwbare service",
+        "Transport door heel Europa",
+      ],
+      introTitle: "Snel, betrouwbaar en flexibel transport",
+      introText:
+        "Wij bieden professioneel en betrouwbaar transport met diverse soorten voertuigen, gecombineerd met opslag en geintegreerde logistieke oplossingen. Of het nu gaat om spoedtransport of geplande distributie, wij zorgen ervoor dat uw goederen veilig en op tijd aankomen.",
+      ctaPrimary: "Offerte aanvragen",
+      ctaSecondary: "Contact opnemen",
+      ctaTertiary: "WhatsApp",
       cards: [
         {
           title: "EU ROUTES",
@@ -243,68 +265,82 @@ export const siteContent: Record<Locale, LocaleContent> = {
     services: {
       eyebrow: "Diensten",
       title: "Onze Diensten",
-      lead: "Wij bieden professioneel transport met verschillende soorten voertuigen.",
+      lead: "Betrouwbare transport-, opslag- en distributieoplossingen voor Nederland en Europa.",
       items: [
         {
-          title: "Bakwagens (4 meter laadruimte)",
-          text: "Ideaal voor stadsdistributie en snelle leveringen.",
+          title: "Transport binnen Nederland",
+          text: "Betrouwbare en efficiënte transportoplossingen voor dagelijkse distributie binnen Nederland.",
         },
         {
-          title: "Vrachtwagens (8 meter laadruimte - C-rijbewijs)",
-          text: "Voor middelgrote transporten.",
+          title: "Internationaal transport (EU)",
+          text: "Snelle en veilige leveringen door heel Europa met professionele planning en uitvoering.",
         },
         {
-          title: "Trekker-oplegger (trailer / vrachtwagens)",
-          text: "Voor grote en internationale transporten.",
+          title: "Spoedtransport",
+          text: "Direct transport voor urgente zendingen, zonder vertraging.",
+        },
+        {
+          title: "Opslag en distributie",
+          text: "Flexibele opslagmogelijkheden gecombineerd met efficiënte distributie.",
+        },
+        {
+          title: "Bakwagen transport (4m / 7m)",
+          text: "Ideaal voor palletvervoer en flexibele leveringen.",
         },
       ],
-      extraTitle: "Daarnaast bieden wij",
-      extras: [
-        "Transport binnen Nederland",
-        "Internationale transport (EU)",
-        "Spoedtransport (urgent levering)",
-        "Distributie en palletvervoer",
-        "Koeriersdiensten",
+      whyTitle: "Waarom kiezen voor ons",
+      whyItems: [
+        "Betrouwbare en ervaren chauffeurs",
+        "Snelle en stipte levering",
+        "Flexibele planning",
+        "Professionele aanpak",
+        "24/7 beschikbaarheid",
       ],
     },
     fleet: {
-      eyebrow: "Onze Voertuigen",
-      title: "Onze Voertuigen",
-      lead: "Wij beschikken over een modern en veelzijdig wagenpark.",
+      eyebrow: "Wagenpark",
+      title: "Ons wagenpark",
+      lead: "Ons wagenpark bestaat uit moderne en goed onderhouden voertuigen, geschikt voor diverse transportbehoeften.",
       summary: "Altijd het juiste voertuig voor uw transport.",
       viewPhoto: "Bekijk Foto",
       vehicles: [
         {
-          title: "4 meter bakwagens",
-          text: "Snel en flexibel.",
+          title: "Meubelwagens (4 meter)",
+          text: "",
           image: vehicleGalleries.boxTruck[0],
           gallery: [...vehicleGalleries.boxTruck],
         },
         {
-          title: "8 meter vrachtwagens",
-          text: "Efficient en krachtig.",
+          title: "Bakwagens (7 meter)",
+          text: "",
           image: vehicleGalleries.truck[0],
           gallery: [...vehicleGalleries.truck],
         },
         {
-          title: "Grote trailers",
-          text: "Voor zware en internationale ladingen.",
+          title: "Trekkers met opleggers",
+          text: "",
           image: vehicleGalleries.trailer[0],
           gallery: [...vehicleGalleries.trailer],
         },
       ],
     },
+    coverage: {
+      eyebrow: "Werkgebied",
+      title: "Wij zijn actief in:",
+      countries: ["Nederland", "België", "Duitsland"],
+    },
     about: {
       eyebrow: "Over Ons",
-      title: "Around Europe B.V. is een professioneel transportbedrijf gevestigd in Tilburg.",
+      title: "Over ons",
       text:
-        "Met jarenlange ervaring in logistiek en distributie bieden wij betrouwbare en flexibele transportdiensten binnen Nederland en Europa. Wij werken met een sterk team van chauffeurs en een modern wagenpark, zodat wij elke opdracht snel en efficient kunnen uitvoeren.",
-      quote: "Uw lading is bij ons in veilige handen.",
+        "Around Europe B.V. is een professioneel transportbedrijf gevestigd in Nederland, gespecialiseerd in nationaal en internationaal transport, spoedleveringen en logistieke oplossingen.\n\nWij staan voor betrouwbaarheid, flexibiliteit en kwaliteit. Met onze ervaring en moderne voertuigen zorgen wij ervoor dat uw goederen veilig en op tijd worden geleverd.",
+      quote: "Betrouwbaarheid, flexibiliteit en kwaliteit in elke zending.",
     },
     contact: {
       eyebrow: "Contact",
-      title: "Contactgegevens",
+      title: "Contact",
       text: "Wij zijn bereikbaar voor al uw transportaanvragen.",
+      homeText: "Heeft u vragen of wilt u een offerte aanvragen? Neem gerust contact met ons op.",
       companyName: "Bedrijfsnaam: Around Europe B.V.",
       kvk: "KVK: 97004367",
       vat: "BTW: NL867871556B01",
@@ -318,6 +354,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
       phone: "Telefoon: +31 6 16077858",
       whatsapp: "WhatsApp Direct",
       call: "Bel Direct",
+      quoteCta: "Vraag direct een offerte aan",
+      contactCta: "Neem contact met ons op",
       form: {
         name: "Volledige Naam",
         namePlaceholder: "Uw naam",
@@ -330,6 +368,9 @@ export const siteContent: Record<Locale, LocaleContent> = {
         message: "Projectdetails",
         messagePlaceholder: "Vertel ons over uw routes, timing of logistieke behoefte",
         submit: "Verstuur Aanvraag",
+        sending: "Bezig met verzenden...",
+        success: "Uw aanvraag is ontvangen. We nemen snel contact met u op.",
+        error: "Er ging iets mis bij het verzenden. Probeer het opnieuw.",
       },
     },
     offices: {
@@ -392,24 +433,32 @@ export const siteContent: Record<Locale, LocaleContent> = {
       backToTop: "Back to top",
       readMore: "Read more",
       allServices: "View all services",
-      allVehicles: "View all vehicles",
+      allVehicles: "View our fleet",
       getQuote: "Request a quote now",
       closeGallery: "Close photo preview",
     },
     hero: {
       eyebrow: "Around Europe B.V.",
-      titleLine1: "Fast, reliable and flexible transport",
-      titleLine2: "in the Netherlands and across Europe",
-      lead:
-        "From urgent deliveries to complete transport solutions, we make sure your shipment arrives safely and on time.",
+      titleLines: ["Reliable transport", "across the", "Netherlands and Europe"],
+      lead: "Fast, safe and flexible logistics solutions for businesses",
       points: [
         "Fast service, including urgent transport",
         "Professional and experienced drivers",
         "Transport tailored to every shipment size",
         "Reliable partner for companies and private clients",
       ],
-      ctaPrimary: "Request A Quote Today",
-      ctaSecondary: "View Services",
+      trustItems: [
+        "24/7 availability",
+        "Fast delivery",
+        "Reliable service",
+        "Transport across Europe",
+      ],
+      introTitle: "Fast, reliable and flexible transport",
+      introText:
+        "We provide professional and reliable transport with a wide range of vehicles, combined with storage and integrated logistics solutions. Whether it is urgent transport or planned distribution, we make sure your goods arrive safely and on time.",
+      ctaPrimary: "Request a Quote",
+      ctaSecondary: "Contact Us",
+      ctaTertiary: "WhatsApp",
       cards: [
         {
           title: "EU ROUTES",
@@ -428,40 +477,48 @@ export const siteContent: Record<Locale, LocaleContent> = {
     services: {
       eyebrow: "Services",
       title: "Our Services",
-      lead: "We provide professional transport with different types of vehicles.",
+      lead: "Reliable transport, storage and distribution solutions across the Netherlands and Europe.",
       items: [
         {
-          title: "Box Trucks (4 meter loading space)",
-          text: "Ideal for city distribution and fast deliveries.",
+          title: "Transport within the Netherlands",
+          text: "Reliable and efficient transport solutions for daily distribution throughout the Netherlands.",
         },
         {
-          title: "Trucks (8 meter loading space - C license)",
-          text: "For medium-sized transport jobs.",
+          title: "International transport (EU)",
+          text: "Fast and secure deliveries across Europe with professional planning and execution.",
         },
         {
-          title: "Tractor-Trailer (trailers / trucks)",
-          text: "For large and international transport operations.",
+          title: "Express transport",
+          text: "Direct transport for urgent shipments without delay.",
+        },
+        {
+          title: "Storage and distribution",
+          text: "Flexible storage options combined with efficient distribution.",
+        },
+        {
+          title: "Box truck transport (4m / 7m)",
+          text: "Ideal for pallet transport and flexible deliveries.",
         },
       ],
-      extraTitle: "Additional transport services",
-      extras: [
-        "Transport within the Netherlands",
-        "International transport (EU)",
-        "Express transport (urgent delivery)",
-        "Distribution and pallet transport",
-        "Courier services",
+      whyTitle: "Why choose us",
+      whyItems: [
+        "Reliable and experienced drivers",
+        "Fast and punctual delivery",
+        "Flexible planning",
+        "Professional approach",
+        "24/7 availability",
       ],
     },
     fleet: {
-      eyebrow: "Our Vehicles",
-      title: "Our Vehicles",
-      lead: "We operate a modern and versatile fleet for different transport needs.",
+      eyebrow: "Fleet",
+      title: "Our fleet",
+      lead: "Our fleet consists of modern and well-maintained vehicles, suitable for a wide range of transport needs.",
       summary: "Always the right vehicle for your transport.",
       viewPhoto: "View Photo",
       vehicles: [
         {
-          title: "4 meter box trucks",
-          text: "Fast and flexible.",
+          title: "Furniture trucks (4 meter)",
+          text: "",
           image: { src: "/hero-truck-warehouse.jpg", alt: "4 meter box truck" },
           gallery: [
             { src: "/hero-truck-warehouse.jpg", alt: "4 meter box truck" },
@@ -470,8 +527,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
           ],
         },
         {
-          title: "8 meter trucks",
-          text: "Efficient and powerful.",
+          title: "Box trucks (7 meter)",
+          text: "",
           image: { src: "/hero-truck-port.jpg", alt: "8 meter truck" },
           gallery: [
             { src: "/hero-truck-port.jpg", alt: "8 meter truck" },
@@ -480,8 +537,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
           ],
         },
         {
-          title: "Large trailers",
-          text: "For heavy and international cargo.",
+          title: "Tractors with trailers",
+          text: "",
           image: { src: "/hero-truck-europe.jpg", alt: "large trailer" },
           gallery: [
             { src: "/hero-truck-europe.jpg", alt: "large trailer" },
@@ -491,17 +548,23 @@ export const siteContent: Record<Locale, LocaleContent> = {
         },
       ],
     },
+    coverage: {
+      eyebrow: "Coverage",
+      title: "We are active in:",
+      countries: ["The Netherlands", "Belgium", "Germany"],
+    },
     about: {
       eyebrow: "About",
-      title: "Around Europe B.V. is a professional transport company based in Tilburg.",
+      title: "About us",
       text:
-        "With years of experience in logistics and distribution, we provide reliable and flexible transport services within the Netherlands and across Europe. We work with a strong team of drivers and a modern fleet so that every assignment can be carried out quickly and efficiently.",
-      quote: "Your cargo is in safe hands with us.",
+        "Around Europe B.V. is a professional transport company based in the Netherlands, specialized in national and international transport, urgent deliveries and logistics solutions.\n\nWe stand for reliability, flexibility and quality. With our experience and modern vehicles, we ensure that your goods are delivered safely and on time.",
+      quote: "Reliability, flexibility and quality in every shipment.",
     },
     contact: {
       eyebrow: "Contact",
-      title: "Contact Details",
+      title: "Contact",
       text: "We are available for all your transport requests.",
+      homeText: "Do you have questions or want to request a quote? Feel free to get in touch with us.",
       companyName: "Company name: Around Europe B.V.",
       kvk: "KVK: 97004367",
       vat: "VAT: NL867871556B01",
@@ -515,6 +578,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
       phone: "Phone: +31 6 16077858",
       whatsapp: "WhatsApp Direct",
       call: "Call Direct",
+      quoteCta: "Request a quote now",
+      contactCta: "Contact us",
       form: {
         name: "Full Name",
         namePlaceholder: "Your name",
@@ -527,6 +592,9 @@ export const siteContent: Record<Locale, LocaleContent> = {
         message: "Project Details",
         messagePlaceholder: "Tell us about your routes, timing or logistics needs",
         submit: "Send Request",
+        sending: "Sending...",
+        success: "Your request has been received. We will contact you soon.",
+        error: "Something went wrong while sending your request. Please try again.",
       },
     },
     offices: {
@@ -611,24 +679,32 @@ export const siteContent: Record<Locale, LocaleContent> = {
       backToTop: "Zurück nach oben",
       readMore: "Mehr erfahren",
       allServices: "Alle Leistungen ansehen",
-      allVehicles: "Alle Fahrzeuge ansehen",
+      allVehicles: "Unseren Fuhrpark ansehen",
       getQuote: "Jetzt Angebot anfordern",
       closeGallery: "Fotovorschau schließen",
     },
     hero: {
       eyebrow: "Around Europe B.V.",
-      titleLine1: "Schneller, zuverlaessiger und flexibler Transport",
-      titleLine2: "in den Niederlanden und in ganz Europa",
-      lead:
-        "Von Expresslieferungen bis zu kompletten Transportloesungen sorgen wir dafuer, dass Ihre Sendung sicher und puenktlich ankommt.",
+      titleLines: ["Zuverlässiger Transport", "in den Niederlanden", "und ganz Europa"],
+      lead: "Schnelle, sichere und flexible Logistiklösungen für Unternehmen",
       points: [
         "Schneller Service - auch Express-Transport moeglich",
         "Professionelle und erfahrene Fahrer",
         "Transport nach Mass - von klein bis gross",
         "Zuverlaessiger Partner fuer Unternehmen und Privatkunden",
       ],
-      ctaPrimary: "Fordern Sie Noch Heute Ein Angebot An",
-      ctaSecondary: "Leistungen Ansehen",
+      trustItems: [
+        "24/7 verfugbar",
+        "Schnelle Lieferung",
+        "Zuverlassiger Service",
+        "Transport in ganz Europa",
+      ],
+      introTitle: "Schneller, zuverlässiger und flexibler Transport",
+      introText:
+        "Wir bieten professionellen und zuverlässigen Transport mit verschiedenen Fahrzeugtypen, kombiniert mit Lagerung und integrierten Logistiklösungen. Ob Express-Transport oder geplante Distribution, wir sorgen dafür, dass Ihre Güter sicher und pünktlich ankommen.",
+      ctaPrimary: "Angebot anfordern",
+      ctaSecondary: "Kontakt aufnehmen",
+      ctaTertiary: "WhatsApp",
       cards: [
         {
           title: "EU-ROUTEN",
@@ -647,40 +723,48 @@ export const siteContent: Record<Locale, LocaleContent> = {
     services: {
       eyebrow: "Leistungen",
       title: "Unsere Leistungen",
-      lead: "Wir bieten professionellen Transport mit verschiedenen Fahrzeugtypen.",
+      lead: "Zuverlässige Transport-, Lager- und Distributionslösungen in den Niederlanden und Europa.",
       items: [
         {
-          title: "Kastenwagen (4 Meter Laderaum)",
-          text: "Ideal fuer Stadtverteilung und schnelle Lieferungen.",
+          title: "Transport innerhalb der Niederlande",
+          text: "Zuverlässige und effiziente Transportlösungen für die tägliche Distribution innerhalb der Niederlande.",
         },
         {
-          title: "Lkw (8 Meter Laderaum - Fuehrerschein C)",
-          text: "Fuer mittelgrosse Transporte.",
+          title: "Internationaler Transport (EU)",
+          text: "Schnelle und sichere Lieferungen in ganz Europa mit professioneller Planung und Ausführung.",
         },
         {
-          title: "Sattelzug (Trailer / Lkw)",
-          text: "Fuer grosse und internationale Transporte.",
+          title: "Express-Transport",
+          text: "Direkter Transport für dringende Sendungen ohne Verzögerung.",
+        },
+        {
+          title: "Lagerung und Distribution",
+          text: "Flexible Lagermöglichkeiten kombiniert mit effizienter Distribution.",
+        },
+        {
+          title: "Kastenwagen-Transport (4m / 7m)",
+          text: "Ideal für Palettentransport und flexible Lieferungen.",
         },
       ],
-      extraTitle: "Zusaetzlich bieten wir",
-      extras: [
-        "Transport innerhalb der Niederlande",
-        "Internationaler Transport (EU)",
-        "Express-Transport (dringende Lieferung)",
-        "Distribution und Palettentransport",
-        "Kurierdienste",
+      whyTitle: "Warum uns wählen",
+      whyItems: [
+        "Zuverlässige und erfahrene Fahrer",
+        "Schnelle und pünktliche Lieferung",
+        "Flexible Planung",
+        "Professioneller Ansatz",
+        "24/7 Verfügbarkeit",
       ],
     },
     fleet: {
-      eyebrow: "Unsere Fahrzeuge",
-      title: "Unsere Fahrzeuge",
-      lead: "Wir verfuegen ueber einen modernen und vielseitigen Fuhrpark.",
+      eyebrow: "Fuhrpark",
+      title: "Unser Fuhrpark",
+      lead: "Unser Fuhrpark besteht aus modernen und gut gewarteten Fahrzeugen für unterschiedliche Transportbedürfnisse.",
       summary: "Immer das richtige Fahrzeug fuer Ihren Transport.",
       viewPhoto: "Foto Ansehen",
       vehicles: [
         {
-          title: "4-Meter-Kastenwagen",
-          text: "Schnell und flexibel.",
+          title: "Möbelwagen (4 Meter)",
+          text: "",
           image: { src: "/hero-truck-warehouse.jpg", alt: "4-Meter-Kastenwagen" },
           gallery: [
             { src: "/hero-truck-warehouse.jpg", alt: "4-Meter-Kastenwagen" },
@@ -689,8 +773,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
           ],
         },
         {
-          title: "8-Meter-Lkw",
-          text: "Effizient und leistungsstark.",
+          title: "Kastenwagen (7 Meter)",
+          text: "",
           image: { src: "/hero-truck-port.jpg", alt: "8-Meter-Lkw" },
           gallery: [
             { src: "/hero-truck-port.jpg", alt: "8-Meter-Lkw" },
@@ -699,8 +783,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
           ],
         },
         {
-          title: "Grosse Trailer",
-          text: "Fuer schwere und internationale Ladungen.",
+          title: "Sattelzugmaschinen mit Aufliegern",
+          text: "",
           image: { src: "/hero-truck-europe.jpg", alt: "großer Trailer" },
           gallery: [
             { src: "/hero-truck-europe.jpg", alt: "großer Trailer" },
@@ -710,17 +794,23 @@ export const siteContent: Record<Locale, LocaleContent> = {
         },
       ],
     },
+    coverage: {
+      eyebrow: "Einsatzgebiet",
+      title: "Wir sind aktiv in:",
+      countries: ["Niederlande", "Belgien", "Deutschland"],
+    },
     about: {
       eyebrow: "Ueber Uns",
-      title: "Around Europe B.V. ist ein professionelles Transportunternehmen mit Sitz in Tilburg.",
+      title: "Über uns",
       text:
-        "Mit jahrelanger Erfahrung in Logistik und Distribution bieten wir zuverlaessige und flexible Transportdienste in den Niederlanden und in ganz Europa. Wir arbeiten mit einem starken Fahrerteam und einem modernen Fuhrpark, damit wir jeden Auftrag schnell und effizient ausfuehren koennen.",
-      quote: "Ihre Ladung ist bei uns in sicheren Haenden.",
+        "Around Europe B.V. ist ein professionelles Transportunternehmen mit Sitz in den Niederlanden und spezialisiert auf nationale und internationale Transporte, Eillieferungen und Logistiklösungen.\n\nWir stehen für Zuverlässigkeit, Flexibilität und Qualität. Mit unserer Erfahrung und modernen Fahrzeugen sorgen wir dafür, dass Ihre Waren sicher und pünktlich geliefert werden.",
+      quote: "Zuverlässigkeit, Flexibilität und Qualität bei jeder Sendung.",
     },
     contact: {
       eyebrow: "Kontakt",
-      title: "Kontaktangaben",
+      title: "Kontakt",
       text: "Wir sind fuer alle Ihre Transportanfragen erreichbar.",
+      homeText: "Haben Sie Fragen oder möchten Sie ein Angebot anfordern? Kontaktieren Sie uns gerne.",
       companyName: "Firmenname: Around Europe B.V.",
       kvk: "Handelsregister: 97004367",
       vat: "USt-IdNr.: NL867871556B01",
@@ -734,6 +824,8 @@ export const siteContent: Record<Locale, LocaleContent> = {
       phone: "Telefon: +31 6 16077858",
       whatsapp: "WhatsApp Direkt",
       call: "Direkt Anrufen",
+      quoteCta: "Jetzt Angebot anfordern",
+      contactCta: "Kontakt aufnehmen",
       form: {
         name: "Vollstaendiger Name",
         namePlaceholder: "Ihr Name",
@@ -746,6 +838,9 @@ export const siteContent: Record<Locale, LocaleContent> = {
         message: "Projektdetails",
         messagePlaceholder: "Erzaehlen Sie uns von Ihren Routen, Terminen oder Logistikanforderungen",
         submit: "Anfrage Senden",
+        sending: "Wird gesendet...",
+        success: "Ihre Anfrage wurde erhalten. Wir melden uns in Kürze bei Ihnen.",
+        error: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       },
     },
     offices: {
