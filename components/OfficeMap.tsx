@@ -43,10 +43,11 @@ export function OfficeMap({ offices, label }: Props) {
 
       offices.forEach((office) => {
         bounds.push(office.coords);
+        const addressWithBreaks = office.address.split("\n").join("<br />");
         L.marker(office.coords, { icon })
           .addTo(map)
           .bindPopup(
-            `<div class="office-popup"><strong>${office.role}</strong><span>${office.city}</span><span>${office.address}</span></div>`
+            `<div class="office-popup"><strong>${office.role}</strong><span>${office.city}</span><span>${addressWithBreaks}</span></div>`
           );
       });
 

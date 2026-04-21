@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Around Europe B.V.",
       images: [
         {
-          url: "/new_logo.png",
+          url: "/logo.png",
           width: 1200,
           height: 630,
           alt: "Around Europe B.V. logo",
@@ -96,7 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: pageSeo.title,
       description: pageSeo.description,
-      images: ["/new_logo.png"],
+      images: ["/logo.png"],
     },
   };
 }

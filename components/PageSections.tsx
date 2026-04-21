@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Fragment } from "react";
 
 import { FleetGallery } from "@/components/FleetGallery";
 import { ContactForm } from "@/components/ContactForm";
@@ -41,7 +42,7 @@ export function HomeSections({ locale, content }: { locale: Locale; content: Con
 
           <div className="hero-stage" aria-hidden="true">
             <div className="hero-cutout">
-              <Image src="/hero-truck-cutout.png" alt="" width={1240} height={760} priority />
+              <Image src="/hero-truck-cutout-v2.png" alt="" width={1240} height={760} priority />
             </div>
             <div className="hero-transaction-strip">
               {content.hero.cards.map((card, index) => (
@@ -249,7 +250,14 @@ export function ContactSection({
             {content.offices.offices.map((office) => (
               <article key={office.key}>
                 <strong>{office.role}</strong>
-                <span>{office.address}</span>
+                <span>
+                  {office.address.split("\n").map((line, index) => (
+                    <Fragment key={`${office.key}-${index}`}>
+                      {index > 0 ? <br /> : null}
+                      {line}
+                    </Fragment>
+                  ))}
+                </span>
               </article>
             ))}
           </div>

@@ -159,7 +159,7 @@ const offices: Office[] = [
     key: "denbosch",
     city: "'s-Hertogenbosch",
     role: "Nederland - 's-Hertogenbosch",
-    address: "Hambakenwetering 2A, 5231 DC 's-Hertogenbosch, Nederland",
+    address: "Hambakenwetering 2A, 5231 DC\n's-Hertogenbosch, Nederland",
     coords: [51.7178, 5.3037],
   },
   {

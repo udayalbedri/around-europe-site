@@ -49,8 +49,14 @@ export function SiteHeader({ locale, pageId, nav }: HeaderProps) {
 
       <header className="topbar">
         <Link className="brand" href={getLocalizedPath(locale, "home")} aria-label="Around Europe B.V.">
-          <Image src="/new_logo.png" alt="Around Europe B.V. logo" width={220} height={74} priority />
-          <span>Around Europe B.V.</span>
+          <Image
+            src="/logo.png"
+            alt="Around Europe B.V. logo"
+            width={240}
+            height={94}
+            className="brand-logo"
+            priority
+          />
         </Link>
 
         <button
