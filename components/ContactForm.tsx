@@ -27,11 +27,13 @@ type Props = {
 export function ContactForm({ locale, labels }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ContactSubmissionResult | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
+    setFieldErrors({});
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -47,6 +49,9 @@ export function ContactForm({ locale, labels }: Props) {
 
       if (result.ok) {
         form.reset();
+        setFieldErrors({});
+      } else if (result.errors) {
+        setFieldErrors(result.errors as Record<string, string>);
       }
     } catch {
       setStatus({
@@ -63,11 +68,23 @@ export function ContactForm({ locale, labels }: Props) {
       <input type="hidden" name="locale" value={locale} />
       <label>
         <span>{labels.name}</span>
-        <input type="text" name="name" placeholder={labels.namePlaceholder} />
+        <input
+          type="text"
+          name="name"
+          placeholder={labels.namePlaceholder}
+          className={fieldErrors.name ? "field-error" : undefined}
+          aria-invalid={fieldErrors.name ? "true" : undefined}
+        />
       </label>
       <label>
         <span>{labels.email}</span>
-        <input type="email" name="email" placeholder={labels.emailPlaceholder} />
+        <input
+          type="email"
+          name="email"
+          placeholder={labels.emailPlaceholder}
+          className={fieldErrors.email ? "field-error" : undefined}
+          aria-invalid={fieldErrors.email ? "true" : undefined}
+        />
       </label>
       <label>
         <span>{labels.company}</span>
@@ -75,7 +92,12 @@ export function ContactForm({ locale, labels }: Props) {
       </label>
       <label>
         <span>{labels.service}</span>
-        <select name="service" defaultValue={labels.options[0]}>
+        <select
+          name="service"
+          defaultValue={labels.options[0]}
+          className={fieldErrors.service ? "field-error" : undefined}
+          aria-invalid={fieldErrors.service ? "true" : undefined}
+        >
           {labels.options.map((option) => (
             <option key={option}>{option}</option>
           ))}
@@ -83,7 +105,13 @@ export function ContactForm({ locale, labels }: Props) {
       </label>
       <label className="form-span">
         <span>{labels.message}</span>
-        <textarea name="message" rows={5} placeholder={labels.messagePlaceholder} />
+        <textarea
+          name="message"
+          rows={5}
+          placeholder={labels.messagePlaceholder}
+          className={fieldErrors.message ? "field-error" : undefined}
+          aria-invalid={fieldErrors.message ? "true" : undefined}
+        />
       </label>
       <div className="form-actions">
         <button className="button button-primary" type="submit" disabled={isSubmitting}>

@@ -758,6 +758,12 @@ blockquote {
   font: inherit;
 }
 
+.contact-form .field-error {
+  border-color: #b23a2d;
+  background: rgba(178, 58, 45, 0.05);
+  box-shadow: 0 0 0 1px rgba(178, 58, 45, 0.2);
+}
+
 .contact-form button {
   justify-self: start;
 }
