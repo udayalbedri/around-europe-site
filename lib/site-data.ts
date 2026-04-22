@@ -129,23 +129,34 @@ type LocaleContent = {
   };
 };
 
-const vehicleGalleries = {
-  boxTruck: [
-    { src: "/hero-truck-warehouse.jpg", alt: "4 meter bakwagen" },
-    { src: "/hero-truck-port.jpg", alt: "4 meter bakwagen bij terminal" },
-    { src: "/hero-truck-europe.jpg", alt: "4 meter bakwagen onderweg in Europa" },
-  ],
-  truck: [
-    { src: "/hero-truck-port.jpg", alt: "8 meter vrachtwagen" },
-    { src: "/hero-truck-warehouse.jpg", alt: "8 meter vrachtwagen bij magazijn" },
-    { src: "/hero-truck-europe.jpg", alt: "8 meter vrachtwagen op Europese route" },
-  ],
-  trailer: [
-    { src: "/hero-truck-europe.jpg", alt: "grote trailer" },
-    { src: "/hero-truck-port.jpg", alt: "grote trailer in havengebied" },
-    { src: "/hero-truck-warehouse.jpg", alt: "grote trailer bij laadlocatie" },
-  ],
+const fleetImagePaths = {
+  furnitureTruck: Array.from(
+    { length: 5 },
+    (_, index) => `/cdn/images/cars/meubelwagens_4_meter/${index + 1}.jpeg`
+  ),
+  boxTruck: Array.from(
+    { length: 14 },
+    (_, index) => `/cdn/images/cars/bakwagen_7_meter/${index + 1}.jpeg`
+  ),
+  trailer: Array.from(
+    { length: 7 },
+    (_, index) => `/cdn/images/cars/trekker_met_oplegger/${index + 1}.jpeg`
+  ),
 } as const;
+
+function toGallery(paths: readonly string[], alt: string): VehicleImage[] {
+  return paths.map((src, index) => ({
+    src,
+    alt: index === 0 ? alt : `${alt} - ${index + 1}`,
+  }));
+}
+
+function toCover(paths: readonly string[], alt: string): VehicleImage {
+  return {
+    src: paths[0],
+    alt,
+  };
+}
 
 const offices: Office[] = [
   {
@@ -307,20 +318,20 @@ export const siteContent: Record<Locale, LocaleContent> = {
         {
           title: "Meubelwagens (4 meter)",
           text: "",
-          image: vehicleGalleries.boxTruck[0],
-          gallery: [...vehicleGalleries.boxTruck],
+          image: toCover(fleetImagePaths.furnitureTruck, "Meubelwagens (4 meter)"),
+          gallery: toGallery(fleetImagePaths.furnitureTruck, "Meubelwagens (4 meter)"),
         },
         {
           title: "Bakwagens (7 meter)",
           text: "",
-          image: vehicleGalleries.truck[0],
-          gallery: [...vehicleGalleries.truck],
+          image: toCover(fleetImagePaths.boxTruck, "Bakwagens (7 meter)"),
+          gallery: toGallery(fleetImagePaths.boxTruck, "Bakwagens (7 meter)"),
         },
         {
           title: "Trekkers met opleggers",
           text: "",
-          image: vehicleGalleries.trailer[0],
-          gallery: [...vehicleGalleries.trailer],
+          image: toCover(fleetImagePaths.trailer, "Trekkers met opleggers"),
+          gallery: toGallery(fleetImagePaths.trailer, "Trekkers met opleggers"),
         },
       ],
     },
@@ -519,32 +530,20 @@ export const siteContent: Record<Locale, LocaleContent> = {
         {
           title: "Furniture trucks (4 meter)",
           text: "",
-          image: { src: "/hero-truck-warehouse.jpg", alt: "4 meter box truck" },
-          gallery: [
-            { src: "/hero-truck-warehouse.jpg", alt: "4 meter box truck" },
-            { src: "/hero-truck-port.jpg", alt: "4 meter box truck near terminal" },
-            { src: "/hero-truck-europe.jpg", alt: "4 meter box truck on European road" },
-          ],
+          image: toCover(fleetImagePaths.furnitureTruck, "Furniture trucks (4 meter)"),
+          gallery: toGallery(fleetImagePaths.furnitureTruck, "Furniture trucks (4 meter)"),
         },
         {
           title: "Box trucks (7 meter)",
           text: "",
-          image: { src: "/hero-truck-port.jpg", alt: "8 meter truck" },
-          gallery: [
-            { src: "/hero-truck-port.jpg", alt: "8 meter truck" },
-            { src: "/hero-truck-warehouse.jpg", alt: "8 meter truck at warehouse" },
-            { src: "/hero-truck-europe.jpg", alt: "8 meter truck on European route" },
-          ],
+          image: toCover(fleetImagePaths.boxTruck, "Box trucks (7 meter)"),
+          gallery: toGallery(fleetImagePaths.boxTruck, "Box trucks (7 meter)"),
         },
         {
           title: "Tractors with trailers",
           text: "",
-          image: { src: "/hero-truck-europe.jpg", alt: "large trailer" },
-          gallery: [
-            { src: "/hero-truck-europe.jpg", alt: "large trailer" },
-            { src: "/hero-truck-port.jpg", alt: "large trailer in port area" },
-            { src: "/hero-truck-warehouse.jpg", alt: "large trailer at loading site" },
-          ],
+          image: toCover(fleetImagePaths.trailer, "Tractors with trailers"),
+          gallery: toGallery(fleetImagePaths.trailer, "Tractors with trailers"),
         },
       ],
     },
@@ -765,32 +764,20 @@ export const siteContent: Record<Locale, LocaleContent> = {
         {
           title: "Möbelwagen (4 Meter)",
           text: "",
-          image: { src: "/hero-truck-warehouse.jpg", alt: "4-Meter-Kastenwagen" },
-          gallery: [
-            { src: "/hero-truck-warehouse.jpg", alt: "4-Meter-Kastenwagen" },
-            { src: "/hero-truck-port.jpg", alt: "4-Meter-Kastenwagen am Terminal" },
-            { src: "/hero-truck-europe.jpg", alt: "4-Meter-Kastenwagen auf Europastraße" },
-          ],
+          image: toCover(fleetImagePaths.furnitureTruck, "Möbelwagen (4 Meter)"),
+          gallery: toGallery(fleetImagePaths.furnitureTruck, "Möbelwagen (4 Meter)"),
         },
         {
           title: "Kastenwagen (7 Meter)",
           text: "",
-          image: { src: "/hero-truck-port.jpg", alt: "8-Meter-Lkw" },
-          gallery: [
-            { src: "/hero-truck-port.jpg", alt: "8-Meter-Lkw" },
-            { src: "/hero-truck-warehouse.jpg", alt: "8-Meter-Lkw am Lager" },
-            { src: "/hero-truck-europe.jpg", alt: "8-Meter-Lkw auf Europa-Route" },
-          ],
+          image: toCover(fleetImagePaths.boxTruck, "Kastenwagen (7 Meter)"),
+          gallery: toGallery(fleetImagePaths.boxTruck, "Kastenwagen (7 Meter)"),
         },
         {
           title: "Sattelzugmaschinen mit Aufliegern",
           text: "",
-          image: { src: "/hero-truck-europe.jpg", alt: "großer Trailer" },
-          gallery: [
-            { src: "/hero-truck-europe.jpg", alt: "großer Trailer" },
-            { src: "/hero-truck-port.jpg", alt: "großer Trailer im Hafengebiet" },
-            { src: "/hero-truck-warehouse.jpg", alt: "großer Trailer am Ladeplatz" },
-          ],
+          image: toCover(fleetImagePaths.trailer, "Sattelzugmaschinen mit Aufliegern"),
+          gallery: toGallery(fleetImagePaths.trailer, "Sattelzugmaschinen mit Aufliegern"),
         },
       ],
     },

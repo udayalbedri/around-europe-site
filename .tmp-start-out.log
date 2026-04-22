@@ -1,0 +1,8 @@
+
+> udsahdetachering.nl@1.0.0 start
+> next start -p 3007
+
+▲ Next.js 16.2.2
+- Local:         http://localhost:3007
+- Network:       http://192.168.86.100:3007
+✓ Ready in 514ms

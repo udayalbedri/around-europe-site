@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 import type { VehicleImage } from "@/lib/site-data";
@@ -33,6 +33,8 @@ export function FleetGallery({
 }: Props) {
   const [activeVehicleIndex, setActiveVehicleIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const lastWheelAt = useRef(0);
 
   const activeGallery = useMemo(() => {
     if (activeVehicleIndex === null) return null;
@@ -49,6 +51,16 @@ export function FleetGallery({
     setActiveVehicleIndex(null);
     setActiveImageIndex(0);
     document.body.style.overflow = "";
+  };
+
+  const showNextImage = () => {
+    if (!activeGallery) return;
+    setActiveImageIndex((current) => (current + 1) % activeGallery.gallery.length);
+  };
+
+  const showPreviousImage = () => {
+    if (!activeGallery) return;
+    setActiveImageIndex((current) => (current - 1 + activeGallery.gallery.length) % activeGallery.gallery.length);
   };
 
   return (
@@ -100,7 +112,50 @@ export function FleetGallery({
             <button className="vehicle-lightbox-close" type="button" onClick={closeGallery} aria-label={closeLabel}>
               ×
             </button>
-            <div className="vehicle-lightbox-image-shell">
+            <div
+              className="vehicle-lightbox-image-shell"
+              tabIndex={0}
+              onWheel={(event) => {
+                const now = Date.now();
+                if (now - lastWheelAt.current < 180) return;
+                if (Math.abs(event.deltaY) < 6) return;
+
+                event.preventDefault();
+                lastWheelAt.current = now;
+                if (event.deltaY > 0) {
+                  showNextImage();
+                  return;
+                }
+                showPreviousImage();
+              }}
+              onTouchStart={(event) => {
+                touchStartX.current = event.touches[0]?.clientX ?? null;
+              }}
+              onTouchEnd={(event) => {
+                if (touchStartX.current === null) return;
+                const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+                const deltaX = touchEndX - touchStartX.current;
+                touchStartX.current = null;
+
+                if (Math.abs(deltaX) < 40) return;
+                if (deltaX < 0) {
+                  showNextImage();
+                  return;
+                }
+                showPreviousImage();
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowRight") {
+                  event.preventDefault();
+                  showNextImage();
+                  return;
+                }
+                if (event.key === "ArrowLeft") {
+                  event.preventDefault();
+                  showPreviousImage();
+                }
+              }}
+            >
               <Image
                 className="vehicle-lightbox-image"
                 src={activeGallery.gallery[activeImageIndex].src}
