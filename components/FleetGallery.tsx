@@ -164,6 +164,17 @@ export function FleetGallery({
                 height={1000}
               />
             </div>
+            <div className="vehicle-lightbox-dots" aria-label="Gallery pagination">
+              {activeGallery.gallery.map((image, index) => (
+                <button
+                  key={`dot-${image.src}-${index}`}
+                  type="button"
+                  className={`vehicle-lightbox-dot${index === activeImageIndex ? " is-active" : ""}`}
+                  aria-label={`Show image ${index + 1}`}
+                  onClick={() => setActiveImageIndex(index)}
+                />
+              ))}
+            </div>
             <div className="vehicle-lightbox-thumbs">
               {activeGallery.gallery.map((image, index) => (
                 <button
