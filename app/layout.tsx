@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale}>
       <body className={`${spaceGrotesk.variable} ${instrumentSerif.variable}`}>{children}</body>
       <Analytics />
-      <SpeedInsights />
+      <SpeedInsights /> 
     </html>
   );
 }
