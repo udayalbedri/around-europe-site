@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/udayalbedri/around-europe-site#readme",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "leaflet": "^1.9.4",
     "next": "^16.2.2",
     "react": "^19.2.4",
