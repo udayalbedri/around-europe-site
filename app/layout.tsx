@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Space_Grotesk, Instrument_Serif } from "next/font/google";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { defaultLocale, isLocale } from "@/lib/i18n";
 
 import "./globals.css";
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale}>
       <body className={`${spaceGrotesk.variable} ${instrumentSerif.variable}`}>{children}</body>
       <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
