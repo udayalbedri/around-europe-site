@@ -50,7 +50,8 @@ export function getLocalizedPath(locale: Locale, pageId: PageId) {
 }
 
 export function getAlternateLanguages(pageId: PageId) {
-  return Object.fromEntries(
-    locales.map((locale) => [locale, getLocalizedPath(locale, pageId)])
-  ) as Record<Locale, string>;
+  return {
+    ...Object.fromEntries(locales.map((locale) => [locale, getLocalizedPath(locale, pageId)])),
+    "x-default": getLocalizedPath(defaultLocale, pageId),
+  } as Record<Locale | "x-default", string>;
 }

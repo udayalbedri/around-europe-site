@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getLocalizedPath, locales, pageIds } from "@/lib/i18n";
+import { getAlternateLanguages, getLocalizedPath, locales, pageIds } from "@/lib/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aroundeurope.nl";
@@ -10,7 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}${getLocalizedPath(locale, pageId)}`,
       alternates: {
         languages: Object.fromEntries(
-          locales.map((altLocale) => [altLocale, `${baseUrl}${getLocalizedPath(altLocale, pageId)}`])
+          Object.entries(getAlternateLanguages(pageId)).map(([altLocale, pathname]) => [
+            altLocale,
+            `${baseUrl}${pathname}`,
+          ])
         ),
       },
     }))

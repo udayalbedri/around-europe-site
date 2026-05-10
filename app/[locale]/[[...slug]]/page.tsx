@@ -24,6 +24,8 @@ const localeMap: Record<Locale, string> = {
   de: "de_DE",
 };
 
+const baseUrl = "https://aroundeurope.nl";
+
 type Props = {
   params: Promise<{
     locale: string;
@@ -86,8 +88,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: "/logo.png",
-          width: 1200,
-          height: 630,
+          width: 926,
+          height: 445,
           alt: "Around Europe B.V. logo",
         },
       ],
@@ -98,6 +100,71 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: pageSeo.description,
       images: ["/logo.png"],
     },
+  };
+}
+
+function getStructuredData(locale: Locale, pageId: PageId) {
+  const content = getLocaleContent(locale);
+  const pageSeo = content.seo.pages[pageId];
+  const pathname = getLocalizedPath(locale, pageId);
+  const pageUrl = `${baseUrl}${pathname}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": `${baseUrl}/#organization`,
+        name: "Around Europe B.V.",
+        url: baseUrl,
+        logo: `${baseUrl}/logo.png`,
+        image: `${baseUrl}/logo.png`,
+        email: "info@aroundeurope.nl",
+        telephone: "+31616077858",
+        vatID: "NL867871556B01",
+        areaServed: ["NL", "BE", "DE"],
+        address: content.offices.offices.map((office) => ({
+          "@type": "PostalAddress",
+          name: office.city,
+          streetAddress: office.address.replace(/\n/g, ", "),
+          addressCountry: "NL",
+        })),
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone: "+31616077858",
+            email: "info@aroundeurope.nl",
+            areaServed: ["NL", "BE", "DE"],
+            availableLanguage: ["Dutch", "English", "German"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        url: baseUrl,
+        name: "Around Europe B.V.",
+        publisher: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        inLanguage: locale,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: pageSeo.title,
+        description: pageSeo.description,
+        isPartOf: {
+          "@id": `${baseUrl}/#website`,
+        },
+        about: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        inLanguage: locale,
+      },
+    ],
   };
 }
 
@@ -114,6 +181,12 @@ function PageContent({ locale, pageId }: { locale: Locale; pageId: PageId }) {
         {pageId === "about" ? <AboutSection content={content} /> : null}
         {pageId === "contact" ? <ContactSection locale={locale} content={content} /> : null}
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getStructuredData(locale, pageId)).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteFooter locale={locale} pageId={pageId} nav={content.nav} footer={content.footer} />
       <BackToTop label={content.common.backToTop} />
     </>

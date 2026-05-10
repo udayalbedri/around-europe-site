@@ -102,11 +102,13 @@ export function ServicesSection({
   compact?: boolean;
   id?: string;
 }) {
+  const TitleTag = compact ? "h2" : "h1";
+
   return (
     <section className="slide slide-services" id={id ?? "top"}>
       <div className="slide-inner">
         <div className="slide-intro">
-          <h2>{content.services.title}</h2>
+          <TitleTag className={compact ? undefined : "section-title"}>{content.services.title}</TitleTag>
           <p className="lead">{content.services.lead}</p>
         </div>
 
@@ -208,11 +210,13 @@ export function AboutSection({
   compact?: boolean;
   id?: string;
 }) {
+  const TitleTag = compact ? "h2" : "h1";
+
   return (
     <section className="slide slide-about" id={id ?? "top"}>
       <div className="slide-inner about-layout">
         <div className="slide-intro">
-          <h2>{content.about.title}</h2>
+          <TitleTag className={compact ? undefined : "section-title"}>{content.about.title}</TitleTag>
         </div>
 
         <div className="about-grid">
@@ -237,6 +241,7 @@ export function ContactSection({
   compact?: boolean;
   id?: string;
 }) {
+  const TitleTag = compact ? "h2" : "h1";
   const officesSection = (
     <section className="slide slide-offices">
       <div className="slide-inner offices-layout">
@@ -272,7 +277,7 @@ export function ContactSection({
         <section className="slide slide-contact" id={id ?? "top"}>
           <div className="slide-inner contact-layout">
             <div className="slide-intro">
-              <h2>{content.contact.title}</h2>
+              <TitleTag>{content.contact.title}</TitleTag>
             </div>
 
             <div className="contact-home-card">
@@ -305,7 +310,7 @@ export function ContactSection({
       <section className="slide slide-contact" id={id ?? "top"}>
         <div className="slide-inner contact-layout">
           <div className="slide-intro">
-            <h2>{content.contact.title}</h2>
+            <TitleTag className="section-title">{content.contact.title}</TitleTag>
           </div>
 
           <div className="contact-grid">
